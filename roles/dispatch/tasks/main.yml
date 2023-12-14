@@ -1,3 +1,4 @@
-- name: Demo
-  ansible.builtin.debug:
-    msg: Component - Dispatch
+- name: Import Common Golang
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: golang
