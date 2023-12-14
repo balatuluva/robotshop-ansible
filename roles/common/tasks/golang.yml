@@ -8,7 +8,9 @@
     file: app_prereq.yml
 
 - name: Install golang Dependencies
-  ansible.builtin.shell: go mod init dispatch ; go get ; go build
+  ansible.builtin.shell: go mod init {{component}} ; go get ; go build
+  args:
+    chdir: /app
 
 - name: SystemD Setup
   ansible.builtin.import_tasks:
